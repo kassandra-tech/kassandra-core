@@ -1,0 +1,101 @@
+<ng-container *ngIf="loginFormGroup">
+  <form class="form"
+        autocomplete="off"
+        id="login-form"
+        [ngClass]="{valid: loginFormGroup.valid}"
+        [formGroup]="loginFormGroup"
+        (ngSubmit)="onSubmit(loginFormGroup.value)"
+  >
+    <fieldset class="form-content">
+      <legend class="title">Log In</legend>
+      <legend class="sub-title">Welcome to Kassandra</legend>
+      <label class="input-group" [for]="ids.usernameField"
+             [ngClass]="{'error': loginFormGroup.get('userName')?.touched &&
+                                  loginFormGroup.get('userName')?.dirty &&
+                                  loginFormGroup.get('userName')?.invalid
+             }"
+      >
+        <span class="label-text">Username</span>
+        <div class="input-wrapper">
+          <input kas-form-item
+                 type="text"
+                 [id]="ids.usernameField"
+                 name="userName"
+                 formControlName="userName"
+                 placeholder="Enter your username"
+          >
+        </div>
+        <div *ngIf="loginFormGroup.get('userName')?.touched &&
+                    loginFormGroup.get('userName')?.dirty &&
+                    loginFormGroup.get('userName')?.invalid"
+             class="alert alert-danger"
+        >
+          <div *ngIf="loginFormGroup.get('userName')?.errors?.['required']">
+            Username is required.
+          </div>
+          <div *ngIf="loginFormGroup.get('userName')?.errors?.['minlength']">
+            Username must be at least
+            {{loginFormGroup.get('userName')?.errors?.['minlength']?.['requiredLength']}}
+            characters , now only
+            {{loginFormGroup.get('userName')?.errors?.['minlength']?.['actualLength']}}
+          </div>
+        </div>
+      </label>
+      <label class="input-group" [for]="ids.passwordField"
+             [ngClass]="{'error': loginFormGroup.get('password')?.touched &&
+                                  loginFormGroup.get('password')?.dirty &&
+                                  loginFormGroup.get('password')?.invalid
+             }"
+      >
+        <span class="label-text">Password</span>
+        <div class="input-wrapper">
+          <!--   needs init value for type after binding   -->
+          <input kas-form-item
+                 type="password"
+                 [type]="showPassword ? 'text' : 'password'"
+                 [id]="ids.passwordField"
+                 name="password"
+                 formControlName="password"
+                 placeholder="Password"
+          >
+          <button kas-cta
+                  type="button"
+                  class="toggle-show-password"
+                  [id]="ids.passwordFieldToggleButton"
+                  (click)="showPassword = !showPassword">
+            {{showPassword ? 'HIDE' : 'SHOW'}}
+          </button>
+        </div>
+        <div *ngIf="loginFormGroup.get('password')?.touched &&
+                    loginFormGroup.get('password')?.dirty &&
+                    loginFormGroup.get('password')?.invalid"
+             class="alert alert-danger"
+        >
+          <div *ngIf="loginFormGroup.get('password')?.errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="loginFormGroup.get('password')?.errors?.['minlength']">
+            Password must be at least
+            {{loginFormGroup.get('password')?.errors?.['minlength']?.['requiredLength']}}
+            characters , now only
+            {{loginFormGroup.get('password')?.errors?.['minlength']?.['actualLength']}}
+          </div>
+        </div>
+      </label>
+      <div *ngIf="errorMessage" class="input-group">
+        <div class="alert-danger">{{errorMessage}}</div>
+      </div>
+      <div class="btn-holder">
+        <button kas-cta-primary
+                type="submit"
+                class="btn"
+                [id]="ids.submitButton"
+                [activeClass]="loginFormGroup.valid"
+                [disabled]="!loginFormGroup.valid || isDisabled"
+                [class.disabledClass]="!loginFormGroup.valid || isDisabled"
+        ><span class="cta-content">Submit</span>
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</ng-container>

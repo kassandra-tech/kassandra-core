@@ -1,0 +1,24 @@
+@import "../../../assets/scss/settings";
+
+.kas-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: rem-calc(20);
+  padding-right: rem-calc(20);
+  @include media('<desktop') {
+    flex: auto;
+    padding-top: rem-calc(17);
+    padding-bottom: rem-calc(17);
+    border-bottom: rem-calc(1) solid rgba(0, 0, 0, .05);
+    background: rgba(246, 246, 246, 0.6);
+  }
+  @include media('>=desktop') {
+    padding-top: rem-calc(15);
+    padding-bottom: rem-calc(15);
+    background-color: transparent;
+  }
+  .image-holder {
+    padding: 0;
+  }
+}

@@ -1,0 +1,38 @@
+@import "../../../assets/scss/settings";
+
+:host {
+  max-height: 500px;
+}
+
+figure {
+  margin: 0;
+}
+
+.card-gallery {
+  width: auto;
+  justify-content: flex-start;
+}
+
+.image-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media('<desktop') {
+    margin-bottom: rem-calc(12);
+  }
+  @include media('>=desktop') {
+    margin-bottom: rem-calc(15);
+  }
+}
+
+img {
+  border-radius: rem-calc(10);
+}
+
+.title {
+  font: 500 #{rem-calc(18)}/1.39 'Poppins', sans-serif;
+}
+
+.description {
+  font: 400 #{rem-calc(14)}/1.43 'Poppins', sans-serif;
+}

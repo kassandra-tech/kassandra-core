@@ -1,0 +1,15 @@
+<button kas-cta
+        type="button"
+        class="btn image-holder"
+        [id]="lang.elementId"
+        *ngFor="let lang of languages; let idx = index; trackBy: trackByString;"
+        (click)="setLanguage(idx)"
+>
+  <img [src]="lang.url"
+       [srcset]="lang.url+' 1x, '+lang.url+' 2x'"
+       [alt]="lang.abbr"
+       loading="lazy"
+       width="14"
+       height="14"
+  >
+</button>

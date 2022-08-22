@@ -1,0 +1,168 @@
+@import "../../../assets/scss/settings";
+
+.kas-card {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: rem-calc(20);
+  background-color: #f6f6f6;
+  border: rem-calc(1) solid #dddada;
+  border-radius: rem-calc(20);
+  @include media('>=desktop') {
+    box-shadow: -20px 20px 40px rgba(234, 234, 234, 0),
+    20px -20px 40px rgba(234, 234, 234, 0),
+    -20px -20px 40px rgba(255, 255, 255, 0),
+    20px 20px 50px rgba(234, 234, 234, 0),
+    inset 1px 1px 2px rgba(255, 255, 255, 0),
+    inset -1px -1px 2px rgba(234, 234, 234, 0);
+    will-change: box-shadow, border-color;
+    transition: {
+      property: box-shadow, border-color;
+      duration: .3s;
+      timing-function: linear;
+    };
+  }
+  & > * {
+    width: 100%;
+  }
+  &:hover {
+    @include media('>=desktop') {
+      border-color: #f6f6f6;
+      box-shadow: -20px 20px 40px rgba(234, 234, 234, 0.2),
+      20px -20px 40px rgba(234, 234, 234, 0.2),
+      -20px -20px 40px rgba(255, 255, 255, 0.9),
+      20px 20px 50px rgba(234, 234, 234, 0.9),
+      inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+      inset -1px -1px 2px rgba(234, 234, 234, 0.5);
+    }
+  }
+  &.isColored {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: rem-calc(18);
+      background: linear-gradient(151.2deg, #3fe3c8 13.98%,
+        #3ee2c8 22.45%,
+        #3ddfc9 29.34%,
+        #3bd9c9 34.9%,
+        #37d3ca 39.37%,
+        #34cacb 42.99%,
+        #2fc1cd 46%,
+        #2ab6ce 48.64%,
+        #25abcf 51.17%,
+        #209fd1 53.81%,
+        #1a93d3 56.82%,
+        #1587d4 60.44%,
+        #0f7bd6 64.9%,
+        #0a70d7 70.46%,
+        #0565d9 77.36%,
+        #005bda 85.83%);
+      opacity: .25;
+    }
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  &.bigView {
+    padding: rem-calc(20 45 50 45);
+    @media screen and (min-height: 700px) {
+      padding: rem-calc(30 60 60 60);
+    }
+    @media screen and (min-height: 800px) {
+      padding: rem-calc(30 60 75 60);
+    }
+  }
+  &.mediumView {
+    padding: rem-calc(45 40 40);
+    max-width: 520px;
+  }
+  &.scrollable {
+    display: block;
+    padding: 0;
+    overflow: {
+      x: hidden;
+      y: auto;
+    };
+    & > .inner-container {
+      padding: rem-calc(20);
+    }
+    &.bigView {
+      padding: 0;
+      & > .inner-container {
+        padding: rem-calc(20 40 40 40);
+        @media screen and (min-height: 600px) {
+          padding: rem-calc(20 40 50 40);
+        }
+        @media screen and (min-height: 700px) {
+          padding: rem-calc(30 60 60 60);
+        }
+        @media screen and (min-height: 800px) {
+          padding: rem-calc(30 60 75 60);
+        }
+      }
+    }
+    &.mediumView {
+      padding: 0;
+      & > .inner-container {
+        padding: rem-calc(45 40 40);
+      }
+    }
+  }
+  &.clear {
+    padding: 0;
+    border-color: transparent;
+  }
+  & > {
+    .image-holder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include media('>=desktop') {
+        margin-bottom: rem-calc(20);
+        @media screen and (min-height: 700px) {
+          margin-bottom: rem-calc(30);
+        }
+        @media screen and (min-height: 800px) {
+          margin-bottom: rem-calc(40);
+        }
+      }
+    }
+    kas-inner-html {
+      .text-holder {
+        @include media('<desktop') {
+          margin-bottom: rem-calc(10);
+          @media screen and (min-height: 500px) {
+            margin-bottom: rem-calc(20);
+          }
+          @media screen and (min-height: 600px) {
+            margin-bottom: rem-calc(30);
+          }
+        }
+        @include media('>=desktop') {
+          margin-bottom: rem-calc(20);
+          @media screen and (min-height: 700px) {
+            margin-bottom: rem-calc(30);
+          }
+          @media screen and (min-height: 800px) {
+            margin-bottom: rem-calc(40);
+          }
+        }
+      }
+      p {
+        font: 400 #{rem-calc(18)}/1.67 'Poppins', sans-serif;
+      }
+    }
+  }
+}

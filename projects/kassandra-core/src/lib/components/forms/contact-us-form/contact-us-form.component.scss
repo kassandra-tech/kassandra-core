@@ -1,0 +1,32 @@
+@import "../../../assets/scss/settings";
+@import "../../../assets/scss/components/forms";
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.form, .form-content {
+  height: 100%;
+}
+
+.form {
+  .form-content {
+    justify-content: flex-start;
+  }
+  .title {
+    @include media('>=desktop') {
+      text-align: center;
+    }
+  }
+  .btn-holder {
+    flex: auto;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    .btn {
+      align-self: center;
+    }
+  }
+}
+

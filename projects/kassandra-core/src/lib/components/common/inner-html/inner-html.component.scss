@@ -1,0 +1,72 @@
+@import "../../../assets/scss/settings";
+
+.kas-inner-html {
+  h2 {
+    @include media('<desktop') {
+      font: 300 #{rem-calc(32)}/1.25 'Poppins', sans-serif;
+    }
+    @include media('<phone') {
+      margin: 0 0 8%;
+    }
+    @include media('>=phone') {
+      margin: rem-calc(0 0 40);
+    }
+    @include media('>=desktop') {
+      margin: rem-calc(0 0 20);
+      font: 300 #{rem-calc(60)}/1 'Poppins', sans-serif;
+    }
+    b {
+      font-weight: 500;
+    }
+  }
+  sup {
+    @include media('<desktop') {
+      font: 500 #{rem-calc(16)}/1.25 'Poppins', sans-serif;
+    }
+    @include media('>=desktop') {
+      font: 500 #{rem-calc(18)}/1.39 'Poppins', sans-serif;
+    }
+    .colored {
+      font-style: inherit;
+      .theme-container.dark & {
+        color: #3fe3c8;
+      }
+      .theme-container.light & {
+        color: #005bda;
+      }
+    }
+  }
+  ul {
+    list-style: disc;
+    padding-left: rem-calc(15);
+    font: 400 #{rem-calc(18)}/1.667 'Poppins', sans-serif;
+    b {
+      font-weight: 500;
+    }
+    li {
+      &:not(:last-of-type) {
+        margin-bottom: rem-calc(10);
+      }
+    }
+  }
+  p {
+    margin: 0;
+    @include media('<desktop') {
+      font: 400 #{rem-calc(16)}/1.25 'Poppins', sans-serif;
+    }
+    @include media('>=desktop') {
+      font: 400 #{rem-calc(16)}/1.875 'Poppins', sans-serif;
+    }
+    &:not(:last-child) {
+      margin: rem-calc(0 0 10);
+    }
+    b {
+      font-weight: 500;
+    }
+  }
+  .image-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

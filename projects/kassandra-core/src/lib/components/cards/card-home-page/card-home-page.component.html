@@ -1,0 +1,26 @@
+<div class="item-header">
+  <div class="image-holder" *ngIf="imageDecoreFirstCharacter">
+    <img [src]="card.decoreTitleImage" [alt]="card.title.charAt(0)">
+  </div>
+  <strong class="title"
+          [class.image-title-decor]="imageDecoreFirstCharacter"
+          [class.text-title-decor]="textDecoreFirstCharacter"
+  >
+    <span class="first-character"
+          *ngIf="textDecoreFirstCharacter"
+    >{{card.title.charAt(0)}}</span>
+    {{(imageDecoreFirstCharacter || textDecoreFirstCharacter) ?
+       card.title.substring(1) : card.title}}
+  </strong>
+  <div class="icon-holder">
+    <img [src]="card.iconPath"
+         [alt]="card.alt"
+         loading="lazy"
+         width="45"
+         height="45"
+    >
+  </div>
+</div>
+<div class="item-main">
+  <ng-content></ng-content>
+</div>

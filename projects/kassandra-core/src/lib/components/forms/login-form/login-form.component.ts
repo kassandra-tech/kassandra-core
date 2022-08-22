@@ -1,0 +1,75 @@
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter,
+  Input
+} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+
+export interface LoginFormData {
+  userName: string;
+  password: string;
+}
+
+@Component({
+  selector: 'kas-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss'],
+  host: {
+    'class': 'kas-login-form'
+  },
+  encapsulation: ViewEncapsulation.Emulated,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class LoginFormComponent implements OnInit {
+
+  @Input() isDisabled = false;
+  @Input() errorMessage = '';
+  @Input() ids: {
+    usernameField: string;
+    passwordField: string;
+    passwordFieldToggleButton: string;
+    submitButton: string;
+  } = {
+    usernameField: 'username-field',
+    passwordField: 'password-field',
+    passwordFieldToggleButton: 'password-toggle-button',
+    submitButton: 'submit-button'
+  };
+  @Output() formDataEmit: EventEmitter<LoginFormData> = new EventEmitter<LoginFormData>();
+
+  public loginFormGroup: FormGroup = this.fb.group({
+    userName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5)
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8)
+    ])
+  });
+
+  public showPassword = false;
+
+  constructor(
+    private fb: FormBuilder,
+  ) {
+  }
+
+  ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+  }
+
+  public onSubmit(formData: LoginFormData) {
+    if (this.loginFormGroup.valid && !this.isDisabled) {
+      this.formDataEmit.emit(formData);
+    }
+  }
+
+}
+
