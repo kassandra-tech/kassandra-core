@@ -31,13 +31,10 @@
              class="alert alert-danger"
         >
           <div *ngIf="loginFormGroup.get('userName')?.errors?.['required']">
-            Username is required.
+            Username required
           </div>
           <div *ngIf="loginFormGroup.get('userName')?.errors?.['minlength']">
-            Username must be at least
-            {{loginFormGroup.get('userName')?.errors?.['minlength']?.['requiredLength']}}
-            characters , now only
-            {{loginFormGroup.get('userName')?.errors?.['minlength']?.['actualLength']}}
+            Username must be at least 5 characters
           </div>
         </div>
       </label>
@@ -75,10 +72,7 @@
             Password is required.
           </div>
           <div *ngIf="loginFormGroup.get('password')?.errors?.['minlength']">
-            Password must be at least
-            {{loginFormGroup.get('password')?.errors?.['minlength']?.['requiredLength']}}
-            characters , now only
-            {{loginFormGroup.get('password')?.errors?.['minlength']?.['actualLength']}}
+            Password must be at least 8 characters
           </div>
         </div>
       </label>

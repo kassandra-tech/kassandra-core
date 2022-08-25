@@ -16,13 +16,10 @@
                     userName?.dirty &&
                     userName?.invalid" class="alert alert-danger">
           <div *ngIf="userName?.errors?.['required']">
-            Username is required.
+            Username required
           </div>
           <div *ngIf="userName?.errors?.['minlength']">
-            Username must be at least
-            {{userName?.errors?.['minlength']?.['requiredLength']}}
-            characters , now only
-            {{userName?.errors?.['minlength']?.['actualLength']}}
+            Username must be at least 5 characters
           </div>
         </div>
       </label>
@@ -39,7 +36,7 @@
                     email?.dirty &&
                     email?.invalid" class="alert alert-danger">
           <div *ngIf="email?.errors?.['required']">
-            Email is required.
+            Email is required
           </div>
           <div *ngIf="email?.errors?.['minlength']">
             Email must be at least
@@ -48,7 +45,7 @@
             {{email?.errors?.['minlength']?.['actualLength']}}
           </div>
           <div *ngIf="email?.errors?.['email']">
-            It doesn't look like email
+            This email address is not the correct format
           </div>
         </div>
       </label>
@@ -73,10 +70,7 @@
             Password is required.
           </div>
           <div *ngIf="password?.errors?.['minlength']">
-            Password must be at least
-            {{password?.errors?.['minlength']?.['requiredLength']}}
-            characters , now only
-            {{password?.errors?.['minlength']?.['actualLength']}}
+            Password must be at least 8 characters
           </div>
         </div>
       </label>
