@@ -30,13 +30,13 @@ export class RecoveryPasswordComponent implements OnInit {
   @Input() ids: {
     usernameField: string;
     passwordField: string;
-    passwordFieldToggleButton: string;
+    showPasswordButton: string;
     securityTokenField: string;
     submitButton: string;
   } = {
     usernameField: 'username-field',
     passwordField: 'password-field',
-    passwordFieldToggleButton: 'password-toggle-button',
+    showPasswordButton: 'show-password-button',
     securityTokenField: 'security-token-field',
     submitButton: 'submit-button'
   };
@@ -78,6 +78,4 @@ export class RecoveryPasswordComponent implements OnInit {
       this.formDataEmit.emit(formData);
     }
   }
-
 }
-

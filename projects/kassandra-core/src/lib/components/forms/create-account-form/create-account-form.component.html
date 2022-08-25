@@ -1,0 +1,130 @@
+<ng-container *ngIf="createAccountFormGroup">
+  <form class="form" autocomplete="off" id="create-account-form" [ngClass]="{valid: createAccountFormGroup.valid}"
+    [formGroup]="createAccountFormGroup" (ngSubmit)="onSubmit(createAccountFormGroup.value)">
+    <fieldset class="form-content">
+      <legend class="title">Create Account</legend>
+      <label class="input-group" [for]="ids.usernameField" [ngClass]="{'error': userName?.touched &&
+                                  userName?.dirty &&
+                                  userName?.invalid
+             }">
+        <span class="label-text">Username</span>
+        <div class="input-wrapper">
+          <input kas-form-item type="text" [id]="ids.usernameField" name="userName" formControlName="userName"
+            placeholder="Enter your username">
+        </div>
+        <div *ngIf="userName?.touched &&
+                    userName?.dirty &&
+                    userName?.invalid" class="alert alert-danger">
+          <div *ngIf="userName?.errors?.['required']">
+            Username is required.
+          </div>
+          <div *ngIf="userName?.errors?.['minlength']">
+            Username must be at least
+            {{userName?.errors?.['minlength']?.['requiredLength']}}
+            characters , now only
+            {{userName?.errors?.['minlength']?.['actualLength']}}
+          </div>
+        </div>
+      </label>
+      <label class="input-group" [for]="ids.emailField" [ngClass]="{'error': email?.touched &&
+                                  email?.dirty &&
+                                  email?.invalid
+             }">
+        <span class="label-text">Email</span>
+        <div class="input-wrapper">
+          <input kas-form-item type="email" [id]="ids.emailField" name="email" formControlName="email"
+            placeholder="Enter your email">
+        </div>
+        <div *ngIf="email?.touched &&
+                    email?.dirty &&
+                    email?.invalid" class="alert alert-danger">
+          <div *ngIf="email?.errors?.['required']">
+            Email is required.
+          </div>
+          <div *ngIf="email?.errors?.['minlength']">
+            Email must be at least
+            {{email?.errors?.['minlength']?.['requiredLength']}}
+            characters , now only
+            {{email?.errors?.['minlength']?.['actualLength']}}
+          </div>
+          <div *ngIf="email?.errors?.['email']">
+            It doesn't look like email
+          </div>
+        </div>
+      </label>
+      <label class="input-group" [for]="ids.passwordField" [ngClass]="{'error': password?.touched &&
+                                  password?.dirty &&
+                                  password?.invalid
+             }">
+        <span class="label-text">Password</span>
+        <div class="input-wrapper">
+          <!--   needs init value for type after binding   -->
+          <input kas-form-item type="password" [type]="showPassword ? 'text' : 'password'" [id]="ids.passwordField"
+            name="password" formControlName="password" placeholder="Password">
+          <button kas-cta type="button" class="toggle-show-password" [id]="ids.showPasswordButton"
+            (click)="showPassword = !showPassword">
+            {{showPassword ? 'HIDE' : 'SHOW'}}
+          </button>
+        </div>
+        <div *ngIf="password?.touched &&
+                    password?.dirty &&
+                    password?.invalid" class="alert alert-danger">
+          <div *ngIf="password?.errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="password?.errors?.['minlength']">
+            Password must be at least
+            {{password?.errors?.['minlength']?.['requiredLength']}}
+            characters , now only
+            {{password?.errors?.['minlength']?.['actualLength']}}
+          </div>
+        </div>
+      </label>
+      <label class="input-group" [for]="ids.confirmPasswordField" [ngClass]="{'error': confirmPassword?.touched &&
+                                  confirmPassword?.dirty &&
+                                  confirmPassword?.invalid
+             }">
+        <span class="label-text">Password Confirmation</span>
+        <div class="input-wrapper">
+          <!--   needs init value for type after binding   -->
+          <input kas-form-item type="password" [type]="showConfirmPassword ? 'text' : 'password'"
+            [id]="ids.confirmPasswordField" name="confirmPassword" formControlName="confirmPassword"
+            placeholder="Password">
+          <button kas-cta type="button" class="toggle-show-password" [id]="ids.confirmPasswordFieldToggleButton"
+            (click)="showConfirmPassword = !showConfirmPassword">
+            {{showConfirmPassword ? 'HIDE' : 'SHOW'}}
+          </button>
+        </div>
+        <div *ngIf="confirmPassword?.touched &&
+                    confirmPassword?.dirty &&
+                    confirmPassword?.invalid" class="alert alert-danger">
+          <div *ngIf="confirmPassword?.errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="confirmPassword?.errors?.['mustMatch']">
+            Passwords do not match
+          </div>
+        </div>
+      </label>
+      <label class="input-group width-auto" [for]="ids.termsAndConditionsCheckBox" [ngClass]="{'error': termsAndConditions?.touched &&
+                                  termsAndConditions?.dirty &&
+                                  termsAndConditions?.invalid
+             }">
+        <kas-check-box [text]="'I agree to the Terms & Conditions'">
+          <input type="checkbox" [id]="ids.termsAndConditionsCheckBox" name="termsAndConditions"
+            formControlName="termsAndConditions">
+        </kas-check-box>
+      </label>
+      <div *ngIf="errorMessage" class="input-group">
+        <div class="alert-danger">{{errorMessage}}</div>
+      </div>
+      <div class="btn-holder">
+        <button kas-cta-primary type="submit" class="btn" [id]="ids.submitButton"
+          [activeClass]="createAccountFormGroup.valid" [disabled]="!createAccountFormGroup.valid || isDisabled"
+          [class.disabledClass]="!createAccountFormGroup.valid || isDisabled"><span class="cta-content">Create
+            Account</span>
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</ng-container>

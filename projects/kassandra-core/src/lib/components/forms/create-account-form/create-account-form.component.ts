@@ -18,7 +18,7 @@ import {
 } from "@angular/forms";
 import { CustomValidators } from "../../../helpers/validators";
 
-export interface SignupFormData {
+export interface CreateAccountFormData {
   userName: string;
   email: string;
   password: string;
@@ -26,16 +26,16 @@ export interface SignupFormData {
 }
 
 @Component({
-  selector: 'kas-signup-form',
-  templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.scss'],
+  selector: 'kas-create-account-form',
+  templateUrl: './create-account-form.component.html',
+  styleUrls: ['./create-account-form.component.scss'],
   host: {
-    'class': 'kas-signup-form'
+    'class': 'kas-create-account-form'
   },
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SignupFormComponent implements OnInit {
+export class CreateAccountFormComponent implements OnInit {
 
   @Input() isDisabled = false;
   @Input() errorMessage = '';
@@ -43,7 +43,7 @@ export class SignupFormComponent implements OnInit {
     usernameField: string;
     emailField: string;
     passwordField: string;
-    passwordFieldToggleButton: string;
+    showPasswordButton: string;
     confirmPasswordField: string;
     confirmPasswordFieldToggleButton: string;
     termsAndConditionsCheckBox: string;
@@ -52,15 +52,15 @@ export class SignupFormComponent implements OnInit {
     usernameField: 'username-field',
     emailField: 'email-field',
     passwordField: 'password-field',
-    passwordFieldToggleButton: 'password-toggle-button',
+    showPasswordButton: 'show-password-button',
     confirmPasswordField: 'confirm-password-field',
     confirmPasswordFieldToggleButton: 'confirm-password-toggle-button',
     termsAndConditionsCheckBox: 'terms-and-conditions-check-box',
     submitButton: 'submit-button'
   };
-  @Output() formDataEmit: EventEmitter<SignupFormData> = new EventEmitter<SignupFormData>();
+  @Output() formDataEmit: EventEmitter<CreateAccountFormData> = new EventEmitter<CreateAccountFormData>();
 
-  public signupFormGroup: FormGroup = this.fb.group({
+  public createAccountFormGroup: FormGroup = this.fb.group({
       userName: new FormControl('', [
         Validators.required,
         Validators.minLength(5)
@@ -101,34 +101,32 @@ export class SignupFormComponent implements OnInit {
   }
 
   public get f(): { [key: string]: AbstractControl; } {
-    return this.signupFormGroup.controls;
+    return this.createAccountFormGroup.controls;
   }
 
   public get userName(): AbstractControl | null {
-    return this.signupFormGroup.get('userName');
+    return this.createAccountFormGroup.get('userName');
   }
 
   public get email(): AbstractControl | null {
-    return this.signupFormGroup.get('email');
+    return this.createAccountFormGroup.get('email');
   }
 
   public get password(): AbstractControl | null {
-    return this.signupFormGroup.get('password');
+    return this.createAccountFormGroup.get('password');
   }
 
   public get confirmPassword(): AbstractControl | null {
-    return this.signupFormGroup.get('confirmPassword');
+    return this.createAccountFormGroup.get('confirmPassword');
   }
 
   public get termsAndConditions(): AbstractControl | null {
-    return this.signupFormGroup.get('termsAndConditions');
+    return this.createAccountFormGroup.get('termsAndConditions');
   }
 
-  public onSubmit(formData: SignupFormData) {
-    if (this.signupFormGroup.valid && !this.isDisabled) {
+  public onSubmit(formData: CreateAccountFormData) {
+    if (this.createAccountFormGroup.valid && !this.isDisabled) {
       this.formDataEmit.emit(formData);
     }
   }
-
 }
-

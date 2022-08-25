@@ -16,8 +16,8 @@ export interface LoginFormData {
 
 @Component({
   selector: 'kas-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss'],
+  templateUrl: './log-in-form.component.html',
+  styleUrls: ['./log-in-form.component.scss'],
   host: {
     'class': 'kas-login-form'
   },
@@ -31,12 +31,12 @@ export class LoginFormComponent implements OnInit {
   @Input() ids: {
     usernameField: string;
     passwordField: string;
-    passwordFieldToggleButton: string;
+    showPasswordButton: string;
     submitButton: string;
   } = {
     usernameField: 'username-field',
     passwordField: 'password-field',
-    passwordFieldToggleButton: 'password-toggle-button',
+    showPasswordButton: 'show-password-button',
     submitButton: 'submit-button'
   };
   @Output() formDataEmit: EventEmitter<LoginFormData> = new EventEmitter<LoginFormData>();
@@ -70,6 +70,4 @@ export class LoginFormComponent implements OnInit {
       this.formDataEmit.emit(formData);
     }
   }
-
 }
-

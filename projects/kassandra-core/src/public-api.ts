@@ -45,8 +45,8 @@ export * from './lib/components/ctas/cta-hamburger/cta-hamburger.component';
 export * from './lib/components/forms/kassandra-forms.module';
 export * from './lib/components/forms/form-item/form-item.component';
 export * from './lib/components/forms/check-box/check-box.component';
-export * from './lib/components/forms/login-form/login-form.component';
-export * from './lib/components/forms/signup-form/signup-form.component';
+export * from './lib/components/forms/log-in-form/log-in-form.component';
+export * from './lib/components/forms/create-account-form/create-account-form.component';
 export * from './lib/components/forms/recovery-password/recovery-password.component';
 export * from './lib/components/forms/contact-us-form/contact-us-form.component';
 
