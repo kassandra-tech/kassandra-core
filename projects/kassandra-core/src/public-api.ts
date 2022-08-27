@@ -47,7 +47,7 @@ export * from './lib/components/forms/form-item/form-item.component';
 export * from './lib/components/forms/check-box/check-box.component';
 export * from './lib/components/forms/log-in-form/log-in-form.component';
 export * from './lib/components/forms/create-account-form/create-account-form.component';
-export * from './lib/components/forms/recovery-password/recovery-password.component';
+export * from './lib/components/forms/forgot-password/forgot-password.component';
 export * from './lib/components/forms/contact-us-form/contact-us-form.component';
 
 // ===========================================================================

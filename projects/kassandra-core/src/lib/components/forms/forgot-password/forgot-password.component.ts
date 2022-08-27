@@ -9,22 +9,22 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
-export interface RecoveryPasswordFormData {
+export interface ForgotPasswordFormData {
   userName: string;
   password: string;
 }
 
 @Component({
-  selector: 'kas-recovery-password',
-  templateUrl: './recovery-password.component.html',
-  styleUrls: ['./recovery-password.component.scss'],
+  selector: 'kas-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss'],
   host: {
-    'class': 'kas-recovery-password'
+    'class': 'kas-forgot-password'
   },
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecoveryPasswordComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit {
 
   @Input() isDisabled = false;
   @Input() ids: {
@@ -40,9 +40,9 @@ export class RecoveryPasswordComponent implements OnInit {
     securityTokenField: 'security-token-field',
     submitButton: 'submit-button'
   };
-  @Output() formDataEmit: EventEmitter<RecoveryPasswordFormData> = new EventEmitter<RecoveryPasswordFormData>();
+  @Output() formDataEmit: EventEmitter<ForgotPasswordFormData> = new EventEmitter<ForgotPasswordFormData>();
 
-  public recoveryPasswordForm: FormGroup = this.fb.group({
+  public forgotPasswordForm: FormGroup = this.fb.group({
     userName: new FormControl('', [
       Validators.required,
       Validators.minLength(5)
@@ -71,8 +71,8 @@ export class RecoveryPasswordComponent implements OnInit {
   ngOnDestroy(): void {
   }
 
-  public onSubmit(formData: RecoveryPasswordFormData) {
-    if (this.recoveryPasswordForm.valid && !this.isDisabled) {
+  public onSubmit(formData: ForgotPasswordFormData) {
+    if (this.forgotPasswordForm.valid && !this.isDisabled) {
       this.submitted = true;
       console.log('onSubmit', formData)
       this.formDataEmit.emit(formData);

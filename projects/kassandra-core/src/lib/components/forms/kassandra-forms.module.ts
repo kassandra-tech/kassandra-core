@@ -6,7 +6,7 @@ import { CheckBoxComponent } from "./check-box/check-box.component";
 import { FormItemComponent } from "./form-item/form-item.component";
 import { LoginFormComponent } from "./log-in-form/log-in-form.component";
 import { CreateAccountFormComponent } from "./create-account-form/create-account-form.component";
-import { RecoveryPasswordComponent } from "./recovery-password/recovery-password.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { ContactUsFormComponent } from "./contact-us-form/contact-us-form.component";
 
 @NgModule({
@@ -15,7 +15,7 @@ import { ContactUsFormComponent } from "./contact-us-form/contact-us-form.compon
     FormItemComponent,
     LoginFormComponent,
     CreateAccountFormComponent,
-    RecoveryPasswordComponent,
+    ForgotPasswordComponent,
     ContactUsFormComponent,
   ],
   imports: [
@@ -28,7 +28,7 @@ import { ContactUsFormComponent } from "./contact-us-form/contact-us-form.compon
     FormItemComponent,
     LoginFormComponent,
     CreateAccountFormComponent,
-    RecoveryPasswordComponent,
+    ForgotPasswordComponent,
     ContactUsFormComponent,
   ]
 })
