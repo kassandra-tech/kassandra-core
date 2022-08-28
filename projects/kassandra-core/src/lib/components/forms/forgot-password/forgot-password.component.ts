@@ -11,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 
 export interface ForgotPasswordFormData {
   userName: string;
-  password: string;
+  email: string;
 }
 
 @Component({
@@ -29,16 +29,12 @@ export class ForgotPasswordComponent implements OnInit {
   @Input() isDisabled = false;
   @Input() ids: {
     usernameField: string;
-    passwordField: string;
-    showPasswordButton: string;
-    securityTokenField: string;
-    submitButton: string;
+    emailField: string;
+    resetButton: string;
   } = {
     usernameField: 'username-field',
-    passwordField: 'password-field',
-    showPasswordButton: 'show-password-button',
-    securityTokenField: 'security-token-field',
-    submitButton: 'submit-button'
+    emailField: 'email-field',
+    resetButton: 'submit-button'
   };
   @Output() formDataEmit: EventEmitter<ForgotPasswordFormData> = new EventEmitter<ForgotPasswordFormData>();
 
@@ -47,17 +43,13 @@ export class ForgotPasswordComponent implements OnInit {
       Validators.required,
       Validators.minLength(5)
     ]),
-    password: new FormControl('', [
+    email: new FormControl('', [
       Validators.required,
-      Validators.minLength(8)
+      Validators.email,
+      Validators.minLength(5)
     ]),
-    securityToken: new FormControl('', [
-      Validators.required,
-      Validators.minLength(1)
-    ])
   });
 
-  public showPassword = false;
   public submitted = false;
 
   constructor(
