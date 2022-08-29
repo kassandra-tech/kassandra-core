@@ -71,13 +71,8 @@
         <span class="label-text">Password Confirmation</span>
         <div class="input-wrapper">
           <!--   needs init value for type after binding   -->
-          <input kas-form-item type="password" [type]="showConfirmPassword ? 'text' : 'password'"
-            [id]="ids.confirmPasswordField" name="confirmPassword" formControlName="confirmPassword"
-            placeholder="Password">
-          <button kas-cta type="button" class="toggle-show-password" [id]="ids.confirmPasswordFieldToggleButton"
-            (click)="showConfirmPassword = !showConfirmPassword">
-            {{showConfirmPassword ? 'HIDE' : 'SHOW'}}
-          </button>
+          <input kas-form-item type="password" [type]="showPassword ? 'text' : 'password'" [id]="ids.confirmPasswordField"
+            name="confirmPassword" formControlName="confirmPassword" placeholder="Password">
         </div>
         <div *ngIf="confirmPassword?.touched &&
                     confirmPassword?.dirty &&

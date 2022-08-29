@@ -45,7 +45,6 @@ export class CreateAccountFormComponent implements OnInit {
     passwordField: string;
     showPasswordButton: string;
     confirmPasswordField: string;
-    confirmPasswordFieldToggleButton: string;
     termsAndConditionsCheckBox: string;
     submitButton: string;
   } = {
@@ -54,7 +53,6 @@ export class CreateAccountFormComponent implements OnInit {
     passwordField: 'password-field',
     showPasswordButton: 'show-password-button',
     confirmPasswordField: 'confirm-password-field',
-    confirmPasswordFieldToggleButton: 'confirm-password-toggle-button',
     termsAndConditionsCheckBox: 'terms-and-conditions-check-box',
     submitButton: 'submit-button'
   };
@@ -86,7 +84,6 @@ export class CreateAccountFormComponent implements OnInit {
   );
 
   public showPassword = false;
-  public showConfirmPassword = false;
 
   constructor(
     private fb: FormBuilder,
