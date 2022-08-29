@@ -78,7 +78,6 @@ export class ContactUsFormComponent implements OnInit, OnDestroy {
       email: [user?.email ? user.email : '', [
         Validators.required,
         Validators.email,
-        Validators.minLength(3)
       ]],
       message: ['', [
         Validators.required,

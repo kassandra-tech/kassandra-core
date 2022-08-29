@@ -5,28 +5,26 @@
       <legend class="title">Create Account</legend>
       <label class="input-group" [for]="ids.usernameField" [ngClass]="{'error': userName?.touched &&
                                   userName?.dirty &&
-                                  userName?.invalid
-             }">
-        <span class="label-text">Username</span>
-        <div class="input-wrapper">
-          <input kas-form-item type="text" [id]="ids.usernameField" name="userName" formControlName="userName"
-            placeholder="Enter your username">
-        </div>
-        <div *ngIf="userName?.touched &&
+                                  userName?.invalid}">
+      <span class="label-text">Username</span>
+      <div class="input-wrapper">
+        <input kas-form-item type="text" [id]="ids.usernameField" name="userName" formControlName="userName"
+          placeholder="Enter your username">
+      </div>
+      <div *ngIf="userName?.touched &&
                     userName?.dirty &&
                     userName?.invalid" class="alert alert-danger">
-          <div *ngIf="userName?.errors?.['required']">
-            Username required
-          </div>
-          <div *ngIf="userName?.errors?.['minlength']">
-            Username must be at least 5 characters
-          </div>
+        <div *ngIf="userName?.errors?.['required']">
+          Username required
         </div>
+        <div *ngIf="userName?.errors?.['minlength']">
+          Username must be at least 5 characters
+        </div>
+      </div>
       </label>
       <label class="input-group" [for]="ids.emailField" [ngClass]="{'error': email?.touched &&
                                   email?.dirty &&
-                                  email?.invalid
-             }">
+                                  email?.invalid}">
         <span class="label-text">Email</span>
         <div class="input-wrapper">
           <input kas-form-item type="email" [id]="ids.emailField" name="email" formControlName="email"
@@ -38,21 +36,14 @@
           <div *ngIf="email?.errors?.['required']">
             Email is required
           </div>
-          <div *ngIf="email?.errors?.['minlength']">
-            Email must be at least
-            {{email?.errors?.['minlength']?.['requiredLength']}}
-            characters , now only
-            {{email?.errors?.['minlength']?.['actualLength']}}
-          </div>
           <div *ngIf="email?.errors?.['email']">
-            This email address is not the correct format
+            Please enter email address in format: name@example.com
           </div>
         </div>
       </label>
       <label class="input-group" [for]="ids.passwordField" [ngClass]="{'error': password?.touched &&
                                   password?.dirty &&
-                                  password?.invalid
-             }">
+                                  password?.invalid}">
         <span class="label-text">Password</span>
         <div class="input-wrapper">
           <!--   needs init value for type after binding   -->
@@ -76,8 +67,7 @@
       </label>
       <label class="input-group" [for]="ids.confirmPasswordField" [ngClass]="{'error': confirmPassword?.touched &&
                                   confirmPassword?.dirty &&
-                                  confirmPassword?.invalid
-             }">
+                                  confirmPassword?.invalid}">
         <span class="label-text">Password Confirmation</span>
         <div class="input-wrapper">
           <!--   needs init value for type after binding   -->
@@ -102,8 +92,7 @@
       </label>
       <label class="input-group width-auto" [for]="ids.termsAndConditionsCheckBox" [ngClass]="{'error': termsAndConditions?.touched &&
                                   termsAndConditions?.dirty &&
-                                  termsAndConditions?.invalid
-             }">
+                                  termsAndConditions?.invalid}">
         <kas-check-box [text]="'I agree to the Terms & Conditions'">
           <input type="checkbox" [id]="ids.termsAndConditionsCheckBox" name="termsAndConditions"
             formControlName="termsAndConditions">

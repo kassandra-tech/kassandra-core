@@ -1,34 +1,19 @@
 <ng-container *ngIf="contactUsFormGroup">
-  <form class="form"
-        autocomplete="off"
-        id="contact-us-form"
-        [ngClass]="{valid: contactUsFormGroup.valid}"
-        [formGroup]="contactUsFormGroup"
-        (ngSubmit)="onSubmit(contactUsFormGroup.value)"
-  >
+  <form class="form" autocomplete="off" id="contact-us-form" [ngClass]="{valid: contactUsFormGroup.valid}"
+    [formGroup]="contactUsFormGroup" (ngSubmit)="onSubmit(contactUsFormGroup.value)">
     <fieldset class="form-content">
       <legend class="title" *ngIf="title">{{title}}</legend>
-      <label class="input-group" [for]="ids.usernameField"
-             [ngClass]="{'error': contactUsFormGroup.get('displayName')?.touched &&
+      <label class="input-group" [for]="ids.usernameField" [ngClass]="{'error': contactUsFormGroup.get('displayName')?.touched &&
                                   contactUsFormGroup.get('displayName')?.dirty &&
-                                  contactUsFormGroup.get('displayName')?.invalid
-             }"
-      >
+                                  contactUsFormGroup.get('displayName')?.invalid}">
         <span class="label-text">Name</span>
         <div class="input-wrapper">
-          <input kas-form-item
-                 type="text"
-                 [id]="ids.usernameField"
-                 name="displayName"
-                 formControlName="displayName"
-                 placeholder="Enter your username"
-          >
+          <input kas-form-item type="text" [id]="ids.usernameField" name="displayName" formControlName="displayName"
+            placeholder="Enter your username">
         </div>
         <div *ngIf="contactUsFormGroup.get('displayName')?.touched &&
                     contactUsFormGroup.get('displayName')?.dirty &&
-                    contactUsFormGroup.get('displayName')?.invalid"
-             class="alert alert-danger"
-        >
+                    contactUsFormGroup.get('displayName')?.invalid" class="alert alert-danger">
           <div *ngIf="contactUsFormGroup.get('displayName')?.errors?.['required']">
             Name is required.
           </div>
@@ -40,57 +25,34 @@
           </div>
         </div>
       </label>
-      <label class="input-group" [for]="ids.emailField"
-             [ngClass]="{'error': contactUsFormGroup.get('email')?.touched &&
+      <label class="input-group" [for]="ids.emailField" [ngClass]="{'error': contactUsFormGroup.get('email')?.touched &&
                                   contactUsFormGroup.get('email')?.dirty &&
-                                  contactUsFormGroup.get('email')?.invalid
-             }"
-      >
+                                  contactUsFormGroup.get('email')?.invalid}">
         <span class="label-text">Email</span>
         <div class="input-wrapper">
-          <input kas-form-item
-                 type="email"
-                 [id]="ids.emailField"
-                 name="email"
-                 formControlName="email"
-                 placeholder="Enter your email"
-          >
+          <input kas-form-item type="email" [id]="ids.emailField" name="email" formControlName="email"
+            placeholder="Enter your email">
         </div>
         <div *ngIf="contactUsFormGroup.get('email')?.touched &&
                     contactUsFormGroup.get('email')?.dirty &&
-                    contactUsFormGroup.get('email')?.invalid"
-             class="alert alert-danger"
-        >
+                    contactUsFormGroup.get('email')?.invalid" class="alert alert-danger">
           <div *ngIf="contactUsFormGroup.get('email')?.errors?.['required']">
             Email is required.
           </div>
-          <div *ngIf="contactUsFormGroup.get('email')?.errors?.['minlength']">
-            Email must be at least
-            {{contactUsFormGroup.get('email')?.errors?.['minlength']?.['requiredLength']}}
-            characters , now only
-            {{contactUsFormGroup.get('email')?.errors?.['minlength']?.['actualLength']}}
-          </div>
-          <div *ngIf="contactUsFormGroup.get('email')?.errors?.['email']"
-          >
-            This email address is not the correct format
+          <div *ngIf="contactUsFormGroup.get('email')?.errors?.['email']">
+            Please enter email address in format: name@example.com
           </div>
         </div>
       </label>
       <label class="input-group flexible" [for]="ids.messageField">
         <span class="label-text">Message</span>
         <div class="input-wrapper">
-          <textarea kas-form-item
-                    [id]="ids.messageField"
-                    name="message"
-                    formControlName="message"
-                    placeholder="Enter your message"
-          ></textarea>
+          <textarea kas-form-item [id]="ids.messageField" name="message" formControlName="message"
+            placeholder="Enter your message"></textarea>
         </div>
         <div *ngIf="contactUsFormGroup.get('message')?.touched &&
                     contactUsFormGroup.get('message')?.dirty &&
-                    contactUsFormGroup.get('message')?.invalid"
-             class="alert alert-danger"
-        >
+                    contactUsFormGroup.get('message')?.invalid" class="alert alert-danger">
           <div *ngIf="contactUsFormGroup.get('message')?.errors?.['required']">
             Message is required.
           </div>
@@ -103,14 +65,10 @@
         </div>
       </label>
       <div class="btn-holder">
-        <button kas-cta-primary
-                type="submit"
-                class="btn"
-                [id]="ids.submitButton"
-                [activeClass]="contactUsFormGroup.valid"
-                [disabled]="!contactUsFormGroup.valid || isDisabled || submitted"
-                [class.disabledClass]="!contactUsFormGroup.valid || isDisabled || submitted"
-        ><span class="cta-content">Submit</span>
+        <button kas-cta-primary type="submit" class="btn" [id]="ids.submitButton"
+          [activeClass]="contactUsFormGroup.valid" [disabled]="!contactUsFormGroup.valid || isDisabled || submitted"
+          [class.disabledClass]="!contactUsFormGroup.valid || isDisabled || submitted">
+          <span class="cta-content">Submit</span>
         </button>
       </div>
     </fieldset>
