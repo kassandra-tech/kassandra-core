@@ -74,8 +74,8 @@ export class CreateAccountFormComponent implements OnInit {
       confirmPassword: new FormControl('', [
         Validators.required
       ]),
-      termsAndConditions: new FormControl(true, [
-        Validators.required,
+      termsAndConditions: new FormControl(false, [
+        Validators.requiredTrue
       ])
     }, {
       validators: CustomValidators

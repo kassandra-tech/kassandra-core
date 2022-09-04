@@ -6,21 +6,21 @@
       <label class="input-group" [for]="ids.usernameField" [ngClass]="{'error': userName?.touched &&
                                   userName?.dirty &&
                                   userName?.invalid}">
-      <span class="label-text">Username</span>
-      <div class="input-wrapper">
-        <input kas-form-item type="text" [id]="ids.usernameField" name="userName" formControlName="userName"
-          placeholder="Enter your username">
-      </div>
-      <div *ngIf="userName?.touched &&
+        <span class="label-text">Username</span>
+        <div class="input-wrapper">
+          <input kas-form-item type="text" [id]="ids.usernameField" name="userName" formControlName="userName"
+            placeholder="Enter your username">
+        </div>
+        <div *ngIf="userName?.touched &&
                     userName?.dirty &&
                     userName?.invalid" class="alert alert-danger">
-        <div *ngIf="userName?.errors?.['required']">
-          Username required
+          <div *ngIf="userName?.errors?.['required']">
+            Username required
+          </div>
+          <div *ngIf="userName?.errors?.['minlength']">
+            Username must be at least 5 characters
+          </div>
         </div>
-        <div *ngIf="userName?.errors?.['minlength']">
-          Username must be at least 5 characters
-        </div>
-      </div>
       </label>
       <label class="input-group" [for]="ids.emailField" [ngClass]="{'error': email?.touched &&
                                   email?.dirty &&
@@ -71,8 +71,9 @@
         <span class="label-text">Password Confirmation</span>
         <div class="input-wrapper">
           <!--   needs init value for type after binding   -->
-          <input kas-form-item type="password" [type]="showPassword ? 'text' : 'password'" [id]="ids.confirmPasswordField"
-            name="confirmPassword" formControlName="confirmPassword" placeholder="Password">
+          <input kas-form-item type="password" [type]="showPassword ? 'text' : 'password'"
+            [id]="ids.confirmPasswordField" name="confirmPassword" formControlName="confirmPassword"
+            placeholder="Password">
         </div>
         <div *ngIf="confirmPassword?.touched &&
                     confirmPassword?.dirty &&
@@ -85,17 +86,20 @@
           </div>
         </div>
       </label>
-      <label class="input-group width-auto" [for]="ids.termsAndConditionsCheckBox" [ngClass]="{'error': termsAndConditions?.touched &&
-                                  termsAndConditions?.dirty &&
-                                  termsAndConditions?.invalid}">
-        <kas-check-box>
-          <input type="checkbox" [id]="ids.termsAndConditionsCheckBox" name="termsAndConditions"
-            formControlName="termsAndConditions">
-            <div style="float: 'right';" id="terms-and-conditions-label">
-              I agree to the <a href="/terms-and-conditions">Terms & Conditions</a>
-            </div>
-        </kas-check-box>
-      </label>
+      <div>
+        <label class="input-group" [for]="ids.termsAndConditionsCheckBox" [ngClass]="{'error': termsAndConditions?.touched &&
+        termsAndConditions?.dirty &&
+        termsAndConditions?.invalid}"
+        >
+          <div>
+            <input type="checkbox" [id]="ids.termsAndConditionsCheckBox" name="termsAndConditions"
+              formControlName="termsAndConditions" style="flex-direction: left;">
+            <span class="checkbox-label" display="inline-flex;" id="terms-and-conditions-link">I agree to the
+              <a padding-left="5px;" href="/terms-and-conditions" target="_blank">Terms & Conditions</a>
+            </span>
+          </div>
+        </label>
+      </div>
       <div *ngIf="errorMessage" class="input-group">
         <div class="alert-danger">{{errorMessage}}</div>
       </div>
