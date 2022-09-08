@@ -14,6 +14,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export interface ContactUsFormData {
   displayName: string;
   email: string;
+  subject: string;
   massage: string;
 }
 
@@ -34,11 +35,13 @@ export class ContactUsFormComponent implements OnInit, OnDestroy {
   @Input() ids: {
     usernameField: string;
     emailField: string;
+    subjectField: string;
     messageField: string;
     submitButton: string;
   } = {
     usernameField: 'username-field',
     emailField: 'email-field',
+    subjectField: 'subject-field',
     messageField: 'message-field',
     submitButton: 'submit-button'
   };
@@ -72,13 +75,13 @@ export class ContactUsFormComponent implements OnInit, OnDestroy {
   private initForm(user: any): void {
     this.contactUsFormGroup = this.fb.group({
       displayName: [user?.displayName ? user.displayName : '', [
-        Validators.required,
-        Validators.minLength(2)
+        Validators.required
       ]],
       email: [user?.email ? user.email : '', [
         Validators.required,
-        Validators.email,
+        Validators.email
       ]],
+      subject: [''],
       message: ['', [
         Validators.required,
         Validators.minLength(1)
@@ -93,6 +96,4 @@ export class ContactUsFormComponent implements OnInit, OnDestroy {
       this.formDataEmit.emit(formData);
     }
   }
-
 }
-

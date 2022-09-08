@@ -44,6 +44,13 @@
           </div>
         </div>
       </label>
+      <label class="input-group" [for]="ids.subjectField">
+        <span class="label-text">Subject</span>
+        <div class="input-wrapper">
+          <input kas-form-item type="text" [id]="ids.subjectField" name="subject" formControlName="subject"
+            placeholder="What would you like to talk about?">
+        </div>
+      </label>
       <label class="input-group flexible" [for]="ids.messageField">
         <span class="label-text">Message</span>
         <div class="input-wrapper">
