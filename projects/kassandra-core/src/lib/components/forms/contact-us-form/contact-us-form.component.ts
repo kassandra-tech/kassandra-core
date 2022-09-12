@@ -15,7 +15,7 @@ export interface ContactUsFormData {
   displayName: string;
   email: string;
   subject: string;
-  massage: string;
+  message: string;
 }
 
 @Component({

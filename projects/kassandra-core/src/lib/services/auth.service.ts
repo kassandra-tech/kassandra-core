@@ -23,14 +23,26 @@ export class AuthService {
     const appId = '2eSJJLFJUsHxYjS0FyMA8YOYyqX44DOKinZkvf8E';
 
     if (this.platformService.isPlatformBrowser()) {
-      Moralis.start({serverUrl, appId});
+      Moralis.start({ serverUrl, appId });
       this.updateAuthState();
+    }
+  }
+
+  /**
+   * Get the name of the member currently logged into Kassandra.
+   * @returns the username of the currently logged in member.
+   */
+  public currentMember(): string {
+    try {
+      return Moralis.User.current().attributes.username;
+    } catch {
+      return "Unknown member";
     }
   }
 
   public async signInWithPhantomWallet(): Promise<void> {
     if (this.platformService.isPlatformBrowser()) {
-      await Moralis.authenticate({type: 'sol'});
+      await Moralis.authenticate({ type: 'sol' });
     }
   }
 
@@ -66,5 +78,4 @@ export class AuthService {
       this._isLoggedIn.next(!!Moralis.User.current());
     }
   }
-
 }
