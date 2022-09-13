@@ -40,6 +40,18 @@ export class AuthService {
     }
   }
 
+  /**
+   * Get the email address of the logged in member.
+   * @returns the Email address of the current user. When the user email can not be found an empty string will be returned.
+   */
+  public memberEmail(): string {
+    try {
+      return Moralis.User.current().attributes.email;
+    } catch {
+      return "";
+    }
+  }
+
   public async signInWithPhantomWallet(): Promise<void> {
     if (this.platformService.isPlatformBrowser()) {
       await Moralis.authenticate({ type: 'sol' });
