@@ -10,7 +10,6 @@
     "noPropertyAccessFromIndexSignature": true,
     "paths": {
       "kassandra-core": [
-        "dist/kassandra-core/kassandra-core",
         "dist/kassandra-core"
       ]
     },

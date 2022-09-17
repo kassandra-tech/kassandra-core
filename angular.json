@@ -15,21 +15,21 @@
           "viewEncapsulation": "None"
         }
       },
-      "root": "projects/kassandra-core",
-      "sourceRoot": "projects/kassandra-core/src",
+      "root": "",
+      "sourceRoot": "src",
       "prefix": "kas",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/kassandra-core/ng-package.json"
+            "project": "ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/kassandra-core/tsconfig.lib.prod.json"
+              "tsConfig": "tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/kassandra-core/tsconfig.lib.json"
+              "tsConfig": "tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -37,9 +37,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kassandra-core/src/test.ts",
-            "tsConfig": "projects/kassandra-core/tsconfig.spec.json",
-            "karmaConfig": "projects/kassandra-core/karma.conf.js"
+            "main": "src/test.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js"
           }
         }
       }
