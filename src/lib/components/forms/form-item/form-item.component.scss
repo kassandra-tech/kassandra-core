@@ -4,6 +4,9 @@
   outline: none;
   display: block;
   width: 100%;
+  @include media('<desktop') {
+    height: 35px;
+  }
   padding: rem-calc(15 70 15 10);
   border: rem-calc(.5) solid #dddada;
   border-radius: rem-calc(5);

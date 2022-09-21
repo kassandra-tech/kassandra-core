@@ -214,6 +214,9 @@
   }
 
   .btn-holder {
+    @include media('<desktop') {
+      height: 38px;
+    }
     .btn {
       width: 100%;
     }

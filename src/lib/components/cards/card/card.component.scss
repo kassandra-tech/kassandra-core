@@ -161,7 +161,12 @@
         }
       }
       p {
-        font: 400 #{rem-calc(18)}/1.67 'Poppins', sans-serif;
+        @include media('>=desktop') {
+          font: 400 #{rem-calc(18)}/1.67 'Poppins', sans-serif;
+        }
+        @include media('<desktop') {
+          font: 400 #{rem-calc(18)}/1.00 'Poppins', sans-serif;
+        }
       }
     }
   }
