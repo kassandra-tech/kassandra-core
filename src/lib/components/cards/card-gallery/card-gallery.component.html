@@ -1,13 +1,11 @@
 <figure class="card-gallery">
   <picture class="image-holder">
-    <!--    <source media="(min-width:650px)" [srcset]="card.url">-->
-    <!--    <source media="(min-width:465px)" [srcset]="card.url">-->
     <img [src]="card.url"
          [srcset]="isMobile ? (card.url+' 1x, '+card.url2x+' 2x') : (card.urlD+' 1x, '+card.urlD2x+' 2x')"
          [alt]="card.title"
          loading="lazy"
-         [width]="isMobile ? 230 : 230"
-         [height]="isMobile ? 230 : 280"
+         [width]="isMobile ? 180 : 230"
+         [height]="isMobile ? 180 : 280"
     >
   </picture>
   <figcaption class="title">{{card.title}}</figcaption>

@@ -129,15 +129,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      @include media('>=desktop') {
-        margin-bottom: rem-calc(20);
-        @media screen and (min-height: 700px) {
-          margin-bottom: rem-calc(30);
-        }
-        @media screen and (min-height: 800px) {
-          margin-bottom: rem-calc(40);
-        }
-      }
+      margin-bottom: rem-calc(40);
     }
     kas-inner-html {
       .text-holder {
