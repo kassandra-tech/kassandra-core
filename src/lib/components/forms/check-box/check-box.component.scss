@@ -1,0 +1,111 @@
+@import "../../../assets/scss/settings";
+
+:host ::ng-deep {
+  input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    &:checked + .cbx {
+      .image-holder {
+        animation: wave 0.4s ease;
+        .theme-container.dark & {
+          border-color: #3fe3c8;
+        }
+        .theme-container.light & {
+          border-color: #005bda;
+        }
+        svg {
+          stroke-dashoffset: 0 !important;
+        }
+      }
+    }
+  }
+  .cbx {
+    &:hover {
+      .image-holder {
+        .theme-container.dark & {
+          border-color: #3fe3c8;
+        }
+        .theme-container.light & {
+          border-color: #005bda;
+        }
+      }
+    }
+  }
+  #check {
+    .theme-container.dark & {
+      stroke: #3fe3c8;
+    }
+    .theme-container.light & {
+      stroke: #005bda;
+    }
+  }
+}
+
+.cbx {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  cursor: pointer;
+  overflow: hidden;
+  will-change: background, border-color;
+  transition: {
+    property: background, border-color;
+    duration: .3s;
+    timing-function: linear;
+  }
+  .image-holder, .text-holder {
+    float: left;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+  }
+  .image-holder {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem-calc(16);
+    height: rem-calc(16);
+    margin-right: rem-calc(12);
+    border-radius: rem-calc(2);
+    transform: scale(1);
+    border: rem-calc(.75) solid #000000;
+    transition: all 0.3s linear;
+    svg {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: rem-calc(16);
+      stroke-dashoffset: rem-calc(16);
+      transition: all 0.3s ease;
+      transition-delay: 0.1s;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .text-holder {
+    font: 400 #{rem-calc(16)}/1.25 'Roboto', sans-serif;
+    text-align: left;
+    color: #000000;
+  }
+}
+
+.inline-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes wave {
+  50% {
+    transform: scale(0.9);
+  }
+}

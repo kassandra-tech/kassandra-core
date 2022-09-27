@@ -1,0 +1,23 @@
+@import "../../../assets/scss/settings";
+
+.kas-copyright {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.copyright {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: rem-calc(14);
+  line-height: em-calc(20);
+  .theme-container.dark & {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .theme-container.light & {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}

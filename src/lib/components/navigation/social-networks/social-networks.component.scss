@@ -1,0 +1,66 @@
+@import "../../../assets/scss/settings";
+
+.kas-social-networks {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  @include media('>=desktop') {
+    flex-flow: column;
+  }
+  .kas-cta {
+    position: relative;
+    margin: 0;
+    padding: rem-calc(10);
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(180deg,
+        rgba(63, 227, 200, 0.15) 0%,
+        rgba(72, 199, 205, 0.15) 20%,
+        rgba(72, 171, 209, 0.15) 40%,
+        rgba(65, 144, 213, 0.15) 60%,
+        rgba(49, 118, 215, 0.15) 80%,
+        rgba(0, 91, 218, 0.15) 100%);
+      opacity: 0;
+      will-change: opacity;
+      transition: opacity linear .3s;
+    }
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+    &:not(:last-of-type) {
+      @include media('<desktop') {
+        margin-right: rem-calc(15);
+      }
+      @include media('>=desktop') {
+        margin-bottom: rem-calc(25);
+      }
+    }
+    .image-holder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: rem-calc(20);
+      height: rem-calc(20);
+    }
+    svg {
+      path {
+        .theme-container.dark & {
+          //fill: #3fe3c8;
+          fill: #005bda;
+        }
+        .theme-container.light & {
+          fill: #005bda;
+        }
+      }
+    }
+  }
+}

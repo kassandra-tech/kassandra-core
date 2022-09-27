@@ -1,0 +1,241 @@
+@import "../../../assets/scss/settings";
+
+.kas-cta.kas-cta-primary {
+  position: relative;
+  width: 100%;
+  max-width: rem-calc(440);
+  min-height: rem-calc(45);
+  padding: rem-calc(11.5 15);
+  border: rem-calc(1) solid transparent;
+  border-radius: rem-calc(50);
+  font: 500 #{rem-calc(16)}/1.25 'Poppins', sans-serif;
+  text-decoration: none !important;
+  color: #000000;
+  background: linear-gradient(135deg, #ffffff 0%, #ededed 100%);
+  box-shadow: -10px 10px 20px rgba(229, 229, 229, 0.2),
+  10px -10px 20px rgba(229, 229, 229, 0.2),
+  -10px -10px 20px rgba(255, 255, 255, 0.9),
+  10px 10px 25px rgba(229, 229, 229, 0.9),
+  inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+  inset -1px -1px 2px rgba(229, 229, 229, 0.5);
+  will-change: box-shadow, color, opacity, background, border-color, text-decoration;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: rem-calc(48);
+    will-change: background, opacity;
+    transition: {
+      property: box-shadow, color, opacity, background, border-color, text-decoration;
+      duration: .3s;
+      timing-function: linear;
+    }
+  }
+  &:before {
+    background: linear-gradient(135deg, #ffffff 0%, #ededed 100%);
+    opacity: 1;
+  }
+  &:after {
+    opacity: 0;
+  }
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+  .cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > * {
+      &:not(:last-child) {
+        margin-right: rem-calc(10);
+      }
+    }
+  }
+  // states
+  &:hover, &:focus, &:active, &:visited {
+    color: #000000;
+  }
+  &:hover, &:active, &:visited, &.activeClass {
+    border-color: #3fe3c8;
+    //border-width: rem-calc(1);
+    &:after {
+      background: #3fe3c8;
+      opacity: 1;
+    }
+  }
+  &:hover, &.activeClass {
+    box-shadow: -15px 15px 25px rgba(221, 221, 221, 0.2),
+    15px -15px 25px rgba(221, 221, 221, 0.2),
+    -15px -15px 25px rgba(255, 255, 255, 0.9),
+    15px 15px 25px rgba(221, 221, 221, 0.9),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 4px rgba(221, 221, 221, 0.5);
+  }
+  &:active {
+    box-shadow: -10px 10px 20px rgba(229, 229, 229, 0),
+    10px -10px 20px rgba(229, 229, 229, 0),
+    -10px -10px 20px rgba(255, 255, 255, 0),
+    10px 10px 25px rgba(229, 229, 229, 0),
+    inset 1px 1px 2px rgba(255, 255, 255, 0),
+    inset -1px -1px 2px rgba(229, 229, 229, 0);
+    &:before, &:after {
+      box-shadow: 1px 1px 2px rgba(69, 250, 220, 0.3),
+      -1px -1px 2px rgba(57, 204, 180, 0.5),
+      inset -5px 5px 10px rgba(57, 204, 180, 0.2),
+      inset 5px -5px 10px rgba(57, 204, 180, 0.2),
+      inset -5px -5px 10px rgba(69, 250, 220, 0.9),
+      inset 5px 5px 13px rgba(57, 204, 180, 0.9);
+    }
+  }
+  &:disabled {
+    pointer-events: none;
+  }
+  &.disabledClass {
+    border-color: #dddada;
+    //border-width: rem-calc(1);
+    box-shadow: -10px 10px 20px rgba(229, 229, 229, 0),
+    10px -10px 20px rgba(229, 229, 229, 0),
+    -10px -10px 20px rgba(255, 255, 255, 0),
+    10px 10px 25px rgba(229, 229, 229, 0),
+    inset 1px 1px 2px rgba(255, 255, 255, 0),
+    inset -1px -1px 2px rgba(229, 229, 229, 0);
+    color: rgba(0, 0, 0, 0.3);
+    cursor: not-allowed;
+    &:before {
+      opacity: 0;
+    }
+    &:after {
+      background-image: linear-gradient(135deg, #f2f2f2 0%, #ffffff 100%);
+      opacity: 1;
+    }
+    &:active {
+      &:after {
+        box-shadow: -10px 10px 20px rgba(229, 229, 229, 0),
+        10px -10px 20px rgba(229, 229, 229, 0),
+        -10px -10px 20px rgba(255, 255, 255, 0),
+        10px 10px 25px rgba(229, 229, 229, 0),
+        inset 1px 1px 2px rgba(255, 255, 255, 0),
+        inset -1px -1px 2px rgba(229, 229, 229, 0);
+      }
+    }
+  }
+  // custom
+  &.warning {
+    border-color: #ebd539;
+    //border-width: rem-calc(1);
+    &:after {
+      background: #ebd539;
+      opacity: 1;
+    }
+    &:active {
+      box-shadow: 1px 1px 2px rgba(255, 245, 66, 0.3),
+      -1px -1px 2px rgba(200, 181, 48, 0.5),
+      inset -5px 5px 10px rgba(200, 181, 48, 0.2),
+      inset 5px -5px 10px rgba(200, 181, 48, 0.2),
+      inset -5px -5px 10px rgba(255, 245, 66, 0.9),
+      inset 5px 5px 13px rgba(200, 181, 48, 0.9);
+    }
+  }
+  &.danger {
+    border-color: #f72a4c;
+    //border-width: rem-calc(1);
+    &:after {
+      background: #f72a4c;
+      opacity: 1;
+    }
+    &:active {
+      box-shadow: 1px 1px 2px rgba(255, 48, 87, 0.3),
+      -1px -1px 2px rgba(208, 36, 65, 0.5),
+      inset -5px 5px 10px rgba(208, 36, 65, 0.2),
+      inset 5px -5px 10px rgba(208, 36, 65, 0.2),
+      inset -5px -5px 10px rgba(255, 48, 87, 0.9),
+      inset 5px 5px 13px rgba(208, 36, 65, 0.9);
+    }
+  }
+  &.info {
+    border-color: #984dc4;
+    //border-width: rem-calc(1);
+    &:after {
+      background: #984dc4;
+      opacity: 1;
+    }
+  }
+  &.transparent {
+    //border-width: rem-calc(1);
+    border-color: rgba(0, 0, 0, 0.6);
+    background: transparent;
+    color: rgba(0, 0, 0, 0.6);
+    box-shadow: -10px 10px 20px rgba(229, 229, 229, 0),
+    10px -10px 20px rgba(229, 229, 229, 0),
+    -10px -10px 20px rgba(255, 255, 255, 0),
+    10px 10px 25px rgba(229, 229, 229, 0),
+    inset 1px 1px 2px rgba(255, 255, 255, 0),
+    inset -1px -1px 2px rgba(229, 229, 229, 0);
+    &:hover {
+      border-color: #000000;
+      color: #000000;
+    }
+    &:active {
+      border-color: transparent;
+      //border-width: 0;
+      background: #f6f6f6;
+      box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3),
+      -1px -1px 2px rgba(221, 221, 221, 0.5),
+      inset -5px 5px 10px rgba(221, 221, 221, 0.2),
+      inset 5px -5px 10px rgba(221, 221, 221, 0.2),
+      inset -5px -5px 10px rgba(255, 255, 255, 0.9),
+      inset 5px 5px 13px rgba(221, 221, 221, 0.9);
+    }
+    &:before, &:after {
+      opacity: 0;
+      box-shadow: 1px 1px 2px rgba(255, 255, 255, 0),
+      -1px -1px 2px rgba(221, 221, 221, 0),
+      inset -5px 5px 10px rgba(221, 221, 221, 0),
+      inset 5px -5px 10px rgba(221, 221, 221, 0),
+      inset -5px -5px 10px rgba(255, 255, 255, 0),
+      inset 5px 5px 13px rgba(221, 221, 221, 0);
+    }
+  }
+  &.clear {
+    border-color: transparent;
+    //border-width: 0;
+    background: transparent;
+    box-shadow: -10px 10px 20px rgba(229, 229, 229, 0),
+    10px -10px 20px rgba(229, 229, 229, 0),
+    -10px -10px 20px rgba(255, 255, 255, 0),
+    10px 10px 25px rgba(229, 229, 229, 0),
+    inset 1px 1px 2px rgba(255, 255, 255, 0),
+    inset -1px -1px 2px rgba(229, 229, 229, 0);
+    &:before, &:after {
+      opacity: 0;
+      box-shadow: -10px 10px 20px rgba(229, 229, 229, 0),
+      10px -10px 20px rgba(229, 229, 229, 0),
+      -10px -10px 20px rgba(255, 255, 255, 0),
+      10px 10px 25px rgba(229, 229, 229, 0),
+      inset 1px 1px 2px rgba(255, 255, 255, 0),
+      inset -1px -1px 2px rgba(229, 229, 229, 0);
+    }
+  }
+  // text-color
+  &.textColorBlack {
+    color: #000000;
+  }
+  &.textColorWhite {
+    color: #ffffff;
+  }
+  &.hoverTextColorBlack {
+    &:hover {
+      color: #000000;
+    }
+  }
+  &.hoverTextColorWhite {
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import "../../../assets/scss/settings";
+
+.kas-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: rem-calc(440);
+  padding: rem-calc(5);
+  margin: 0 auto;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: transparent;
+  text-align: center;
+  text-decoration: underline transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  will-change: box-shadow, color, opacity, background, border-color, text-decoration;
+  transition: {
+    property: box-shadow, color, opacity, background, border-color, text-decoration;
+    duration: .3s;
+    timing-function: linear;
+  }
+  &:not(.kas-cta-primary) {
+    .theme-container.dark & {
+      color: rgba(255, 255, 255, 0.6);
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        color: #3fe3c8;
+      }
+      &:hover {
+        text-decoration: underline #3fe3c8;
+      }
+    }
+    .theme-container.light & {
+      color: #000000;
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        color: #005bda;
+      }
+      &:hover {
+        text-decoration: underline #005bda;
+      }
+    }
+  }
+  & > * {
+    &:not(:last-child) {
+      margin-right: rem-calc(10);
+    }
+  }
+}
